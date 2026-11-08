@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BioTrace — Luxury Kinetic Ergonomic Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg-space: #050709;
+      --card-base: #0b0f14;
+      --emerald-glow: #10b981;
+      --cyan-glow: #06b6d4;
+      --amber-glow: #f59e0b;
+      --purple-glow: #a855f7;
+    }
+    body {
+      background-color: var(--bg-space);
+      color: #f3f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overflow-x: hidden;
+    }
+    .font-serif-editorial {
+      font-family: 'Newsreader', serif;
+    }
+    .font-mono-tech {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Ambient Kinetic Background */
+    .kinetic-grid {
+      background-image: 
+        radial-gradient(circle at 50% 12%, rgba(16, 185, 129, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 30%, rgba(6, 182, 212, 0.08) 0%, transparent 45%),
+        repeating-radial-gradient(ellipse at 50% 15%, rgba(16, 185, 129, 0.15) 0px, transparent 2px, transparent 20px);
+      mask-image: radial-gradient(ellipse at center, black 45%, transparent 85%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 45%, transparent 85%);
+    }
+
+    /* Smoky Beveled Glass Pill */
+    .glass-pill {
+      background: linear-gradient(180deg, rgba(16, 22, 29, 0.75) 0%, rgba(8, 12, 16, 0.85) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      box-shadow: 
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.16),
+        0 16px 36px -4px rgba(0, 0, 0, 0.85);
+    }
+
+    /* Telemetry Stat Capsule */
+    .stat-capsule {
+      background: linear-gradient(180deg, rgba(14, 19, 25, 0.9) 0%, rgba(8, 12, 16, 0.95) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.22);
+      box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 24px 48px -12px rgba(0, 0, 0, 0.95),
+        0 0 24px -6px rgba(16, 185, 129, 0.15);
+    }
+
+    /* Base Stacked Motion Card */
+    .motion-card {
+      position: sticky;
+      background: linear-gradient(180deg, #0e131a 0%, #080b0f 100%);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow: 0 -16px 36px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Color Rims for Each Hardware Stack Layer */
+    .rim-emerald { border-top: 1px solid rgba(16, 185, 129, 0.7); }
+    .rim-cyan    { border-top: 1px solid rgba(6, 182, 212, 0.7); }
+    .rim-purple  { border-top: 1px solid rgba(168, 85, 247, 0.7); }
+    .rim-amber   { border-top: 1px solid rgba(245, 158, 11, 0.7); }
+  </style>
+</head>
+<body class="selection:bg-emerald-400 selection:text-black">
+
+  <!-- Smoky Glass Pill Navigation -->
+  <header class="fixed top-6 left-0 right-0 z-50 flex items-center justify-between max-w-6xl mx-auto px-6 pointer-events-none">
+    <div class="glass-pill px-4 py-2 rounded-full pointer-events-auto flex items-center gap-2.5">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_#10b981]"></span>
+      <span class="font-mono-tech text-xs tracking-widest text-zinc-200 uppercase font-bold">biotrace</span>
+    </div>
+
+    <nav class="glass-pill px-6 py-2 rounded-full pointer-events-auto hidden sm:flex items-center gap-6 text-xs text-zinc-400 font-mono-tech">
+      <a href="#hero" class="text-zinc-200 hover:text-emerald-400 transition">overview</a>
+      <a href="#metrics" class="hover:text-cyan-400 transition">telemetry</a>
+      <a href="#deck" class="hover:text-emerald-400 transition">kinetic deck</a>
+      <a href="#platform" class="hover:text-purple-400 transition">gemini hub</a>
+    </nav>
+
+    <div class="glass-pill px-4 py-2 rounded-full pointer-events-auto flex items-center gap-2">
+      <span class="font-mono-tech text-[11px] text-emerald-400 uppercase font-semibold">1,000Hz live</span>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 pb-16 overflow-hidden">
+    <div class="absolute inset-0 kinetic-grid pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto space-y-6">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-[11px] font-mono-tech text-emerald-400 border border-emerald-500/30">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        SUB-SURFACE KINETICS // ESP32 DUAL-CORE DMA
+      </div>
+
+      <h1 class="font-serif-editorial text-5xl sm:text-7xl lg:text-8xl tracking-tight text-white leading-[1.06] font-light">
+        Turns out most desk fatigue <br>
+        <span class="italic text-emerald-300">is invisible muscle tension.</span>
+      </h1>
+
+      <p class="font-mono-tech text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
+        BioTrace captures keystroke pounding, restless desk jitter, and cervical posture slouching in 0.3 seconds.
+      </p>
+
+      <div class="pt-4 flex items-center justify-center gap-4">
+        <a href="#deck" class="glass-pill px-6 py-3 rounded-full font-mono-tech text-xs text-white hover:border-emerald-400/60 transition shadow-[0_0_20px_rgba(16,185,129,0.15)]">
+          explore kinetic deck ↓
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Telemetry Stat Capsule -->
+  <section id="metrics" class="max-w-5xl mx-auto px-6 py-12">
+    <div class="stat-capsule rounded-2xl p-6 sm:p-8 grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="text-center sm:text-left sm:border-r border-zinc-800/80 pr-4">
+        <div class="font-serif-editorial text-3xl sm:text-4xl text-emerald-400 font-normal">0.3<span class="text-base text-zinc-400 font-mono-tech ml-1">sec</span></div>
+        <div class="font-mono-tech text-[11px] text-zinc-400 mt-1 uppercase tracking-wide">Live Response Latency</div>
+      </div>
+      <div class="text-center sm:text-left sm:border-r border-zinc-800/80 pr-4">
+        <div class="font-serif-editorial text-3xl sm:text-4xl text-cyan-400 font-normal">1,000<span class="text-base text-zinc-400 font-mono-tech ml-1">Hz</span></div>
+        <div class="font-mono-tech text-[11px] text-zinc-400 mt-1 uppercase tracking-wide">ESP32 Piezo Sampling</div>
+      </div>
+      <div class="text-center sm:text-left sm:border-r border-zinc-800/80 pr-4">
+        <div class="font-serif-editorial text-3xl sm:text-4xl text-emerald-400 font-normal">±15°</div>
+        <div class="font-mono-tech text-[11px] text-zinc-400 mt-1 uppercase tracking-wide">Cervical Comfort Zone</div>
+      </div>
+      <div class="text-center sm:text-left">
+        <div class="font-serif-editorial text-3xl sm:text-4xl text-purple-400 font-normal">100<span class="text-base text-zinc-400 font-mono-tech ml-1">%</span></div>
+        <div class="font-mono-tech text-[11px] text-zinc-400 mt-1 uppercase tracking-wide">Local Privacy Vision</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stacked Motion Card Deck -->
+  <section id="deck" class="max-w-4xl mx-auto px-6 py-20">
+    <div class="mb-14 text-center sm:text-left space-y-2">
+      <div class="font-mono-tech text-xs text-emerald-400 uppercase tracking-widest">ARCHITECTURE // 5-LAYER STACK</div>
+      <h2 class="font-serif-editorial text-4xl sm:text-5xl text-white">Five layers that never sleep.</h2>
+      <p class="font-mono-tech text-xs text-zinc-400">Scroll down to see each hardware layer slide into position.</p>
+    </div>
+
+    <!-- The Stack Container -->
+    <div class="relative space-y-12 pb-32">
+
+      <!-- Card 01: Transducer Mat (Emerald Accent) -->
+      <div class="motion-card rim-emerald top-24 rounded-3xl p-8 sm:p-10 space-y-6">
+        <div class="flex items-center justify-between border-b border-zinc-800/80 pb-4">
+          <span class="font-mono-tech text-xs text-emerald-400">01 // TRANSDUCER MAT</span>
+          <span class="font-mono-tech text-[10px] text-emerald-400/80 px-2.5 py-0.5 rounded-full bg-emerald-950/50 border border-emerald-800/50 uppercase">Sub-Surface Piezo</span>
+        </div>
+        <h3 class="font-serif-editorial text-3xl sm:text-4xl text-white leading-tight">
+          Piezoelectric ceramic discs directly beneath your wrists.
+        </h3>
+        <p class="font-mono-tech text-xs text-zinc-400 leading-relaxed max-w-2xl">
+          Converts subtle physical pressure into micro-volt signals at the instant keys are struck. Catches aggressive finger pounding, desk tapping, and heavy wrist fatigue before joint soreness begins.
+        </p>
+        <div class="font-mono-tech text-[11px] text-zinc-500 pt-2 flex items-center gap-4">
+          <span class="text-emerald-400/80">• 12-Bit ADC Precision</span>
+          <span>• Sub-Millimeter Deflection</span>
+        </div>
+      </div>
+
+      <!-- Card 02: Processing Core (Cyan Accent) -->
+      <div class="motion-card rim-cyan top-32 rounded-3xl p-8 sm:p-10 space-y-6">
+        <div class="flex items-center justify-between border-b border-zinc-800/80 pb-4">
+          <span class="font-mono-tech text-xs text-cyan-400">02 // PROCESSING CORE</span>
+          <span class="font-mono-tech text-[10px] text-cyan-400/80 px-2.5 py-0.5 rounded-full bg-cyan-950/50 border border-cyan-800/50 uppercase">ESP32 DevKit V1</span>
+        </div>
+        <h3 class="font-serif-editorial text-3xl sm:text-4xl text-white leading-tight">
+          Dual-Core 240MHz hardware filtering at 1,000 frames/sec.
+        </h3>
+        <p class="font-mono-tech text-xs text-zinc-400 leading-relaxed max-w-2xl">
+          Direct Memory Access (DMA) pipelines feed real-time sensor packets at 115200 baud over USB serial. Eliminates buffer lag and feeds instantaneous dynamic strain waveforms to the dashboard.
+        </p>
+        <div class="font-mono-tech text-[11px] text-zinc-500 pt-2 flex items-center gap-4">
+          <span class="text-cyan-400/80">• Dual 240MHz Xtensa</span>
+          <span>• 115200 Baud UART</span>
+        </div>
+      </div>
+
+      <!-- Card 03: Optical Centroid (Purple Accent) -->
+      <div class="motion-card rim-purple top-40 rounded-3xl p-8 sm:p-10 space-y-6">
+        <div class="flex items-center justify-between border-b border-zinc-800/80 pb-4">
+          <span class="font-mono-tech text-xs text-purple-400">03 // OPTICAL CENTROID</span>
+          <span class="font-mono-tech text-[10px] text-purple-400/80 px-2.5 py-0.5 rounded-full bg-purple-950/50 border border-purple-800/50 uppercase">Local MediaPipe</span>
+        </div>
+        <h3 class="font-serif-editorial text-3xl sm:text-4xl text-white leading-tight">
+          33 landmark posture tracking with zero cloud leakage.
+        </h3>
+        <p class="font-mono-tech text-xs text-zinc-400 leading-relaxed max-w-2xl">
+          Calculates cervical neck inclination and upper-body lateral tilt locally inside the browser. No raw camera frames or photos are ever saved, streamed, or uploaded to any remote server.
+        </p>
+        <div class="font-mono-tech text-[11px] text-zinc-500 pt-2 flex items-center gap-4">
+          <span class="text-purple-400/80">• ±15° Upright Calibration</span>
+          <span>• 100% Client-Side Ingestion</span>
+        </div>
+      </div>
+
+      <!-- Card 04: Kinetic Engine (Amber Accent) -->
+      <div class="motion-card rim-amber top-48 rounded-3xl p-8 sm:p-10 space-y-6">
+        <div class="flex items-center justify-between border-b border-zinc-800/80 pb-4">
+          <span class="font-mono-tech text-xs text-amber-400">04 // KINETIC ENGINE</span>
+          <span class="font-mono-tech text-[10px] text-amber-400/80 px-2.5 py-0.5 rounded-full bg-amber-950/50 border border-amber-800/50 uppercase">Static Tension Alert</span>
+        </div>
+        <h3 class="font-serif-editorial text-3xl sm:text-4xl text-white leading-tight">
+          Detects when your muscles lock in static stiffness.
+        </h3>
+        <p class="font-mono-tech text-xs text-zinc-400 leading-relaxed max-w-2xl">
+          Slouching isn't the only risk; holding your neck and shoulders completely frozen for more than 2 minutes restricts blood flow. BioTrace triggers a subtle 30-second reset micro-stretch before pain sets in.
+        </p>
+        <div class="font-mono-tech text-[11px] text-zinc-500 pt-2 flex items-center gap-4">
+          <span class="text-amber-400/80">• Motion Variance Filter</span>
+          <span>• Rigidity Duration Timer</span>
+        </div>
+      </div>
+
+      <!-- Card 05: Synthesis Hub (Emerald Accent) -->
+      <div class="motion-card rim-emerald top-56 rounded-3xl p-8 sm:p-10 space-y-6">
+        <div class="flex items-center justify-between border-b border-zinc-800/80 pb-4">
+          <span class="font-mono-tech text-xs text-emerald-400">05 // SYNTHESIS HUB</span>
+          <span class="font-mono-tech text-[10px] text-emerald-400/80 px-2.5 py-0.5 rounded-full bg-emerald-950/50 border border-emerald-800/50 uppercase">Google Gemini 2.5 Flash</span>
+        </div>
+        <h3 class="font-serif-editorial text-3xl sm:text-4xl text-white leading-tight">
+          Consolidated longitudinal wellness reports across sessions.
+        </h3>
+        <p class="font-mono-tech text-xs text-zinc-400 leading-relaxed max-w-2xl">
+          Combines daily, weekly, and custom work periods into a single structured dataset. Gemini analyzes actual posture score consistency, wrist strike impact, and sitting shift logs with exportable PDF summaries.
+        </p>
+        <div class="font-mono-tech text-[11px] text-zinc-500 pt-2 flex items-center gap-4">
+          <span class="text-emerald-400/80">• Multi-Session Aggregation</span>
+          <span>• Print-Ready Vector PDF</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-900/80 py-12 text-center font-mono-tech text-xs text-zinc-600 space-y-2">
+    <div>BIOTRACE ERGONOMIC TELEMETRY PLATFORM // HIGH-PRECISION REFINEMENT</div>
+    <div>Crafted with sub-surface piezoelectric transducers & on-device posture vision.</div>
+  </footer>
+
+</body>
+</html>
